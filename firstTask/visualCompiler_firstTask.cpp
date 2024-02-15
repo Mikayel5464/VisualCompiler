@@ -13,15 +13,19 @@ int main() {
 }
 
 void file_copy(std::string path) {
-    std::ifstream fin(path);
-    std::ofstream fout("result.txt");
+    std::ifstream fin;
+    std::ofstream fout;
 
+    fin.open(path);
     if (!fin.is_open()) {
         std::cout << "Can't open the input file!" << std::endl;
+        return;
     }
 
+    fout.open("result.txt");
     if (!fout.is_open()) {
         std::cout << "Can't open the output file!" << std::endl;
+        return;
     }
     
     std::string str;
